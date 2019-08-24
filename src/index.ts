@@ -14,17 +14,21 @@ const ctx = canvas
   .node()
   .getContext('2d');
 const N = new Noise(Math.random());
-const WVFunction = weightedVoronoi()
+const WVFunction = weightedVoronoi<MySite>()
   .x(d => d.x)
   .y(d => d.y)
-  .weight(d => d.w)
+  .weight(d => d.weight)
   .size([500, 500]);
 const Clipper = CL.loadNativeClipperLibInstanceAsync(
   CL.NativeClipperLibRequestedFormat.WasmWithAsmJsFallback
 );
+const polygonSites = (sites: MySite[]) =>
+  WVFunction(sites).map(poly => ({
+    poly,
+    site: sites[poly.site.originalObject.id],
+  }));
 const weightedLloyd = (time: number, pg: WVPolygon<MySite>) => {
   const out = clone(pg);
-  pg.site.neigbours.map(s => out.original);
 };
 const render = (time: number) => {};
 void (async () => {

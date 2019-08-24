@@ -8,4 +8,4 @@ export class MySite {
   neighbours: Set<number> = new Set();
   distanceFrom: Map<number, number> = new Map();
 }
-new Set().
+type;
