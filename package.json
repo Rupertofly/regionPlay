@@ -1,0 +1,36 @@
+{
+  "name": "d3playground",
+  "version": "0.1.0",
+  "description": "Playground for d3 svg work",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server",
+    "chrome": "/Applications/Chromium.app/Contents/MacOS/Chromium --remote-debugging-port=9222 --app=http://localhost:5050/dist/"
+  },
+  "author": "Ruby Quail",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/d3": "^5.7.2",
+    "@types/d3-weighted-voronoi": "github:Rupertofly/types-d3-weighted-voronoi",
+    "@types/lodash": "^4.14.134",
+    "@types/noisejs": "^0.0.28",
+    "@types/ramda": "^0.26.21",
+    "ts-loader": "^6.0.2",
+    "tslint": "^5.17.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-config-standard": "^8.0.1",
+    "typescript": "^3.5.1",
+    "webpack": "^4.33.0",
+    "webpack-cli": "^3.3.3",
+    "webpack-dev-server": "^3.7.1"
+  },
+  "dependencies": {
+    "d3": "^5.11.0",
+    "d3-weighted-voronoi": "^1.0.1",
+    "js-angusj-clipper": "^1.0.2",
+    "lodash": "^4.17.11",
+    "noisejs": "^2.1.0",
+    "ramda": "^0.26.1",
+    "rubyq-utils": "github:Rupertofly/ruby-utils"
+  }
+}
