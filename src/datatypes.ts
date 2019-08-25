@@ -1,3 +1,5 @@
+import { WVPolygon } from 'd3-weighted-voronoi';
+
 export class MySite {
   id: number;
   x: number = 0;
@@ -8,4 +10,11 @@ export class MySite {
   neighbours: Set<number> = new Set();
   distanceFrom: Map<number, number> = new Map();
 }
-type;
+interface IsitePoly {
+  site: MySite;
+  poly: WVPolygon<MySite>;
+}
+export const sitePoly: (site: MySite, poly: WVPolygon<MySite>) => IsitePoly = (
+  site,
+  poly
+) => ({ site, poly });
