@@ -22,14 +22,19 @@ const WVFunction = weightedVoronoi<MySite>()
 const Clipper = CL.loadNativeClipperLibInstanceAsync(
   CL.NativeClipperLibRequestedFormat.WasmWithAsmJsFallback
 );
-const polygonSites = (sites: MySite[]) =>
-  WVFunction(sites).map(poly => ({
+const polygonSites = (sites: MySite[]) => {
+  const Isites = WVFunction(clone(sites)).map(poly => ({
     poly,
-    site: sites[poly.site.originalObject.id],
+    site: poly.site.originalObject,
   }));
-const weightedLloyd = (time: number, pg: WVPolygon<MySite>) => {
-  const out = clone(pg);
+  Isites.map(is => {
+    is.site.neighbours.clear();
+    is.poly.site.neigbours.map(n =>
+      is.site.neighbours.add(n.originalObject.id)
+    );
+  });
 };
+
 const render = (time: number) => {};
 void (async () => {
   await Clipper;
